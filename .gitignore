@@ -1,0 +1,35 @@
+target/
+
+# Binaries
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.war
+*.ear
+*.sar
+*.class
+
+# eclipse project file
+.settings/
+.classpath
+.project
+
+# IntelliJ project files 
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# Bin
+bin/
+# Log 
+*.log
+
+# OS
+.DS_Store
+
