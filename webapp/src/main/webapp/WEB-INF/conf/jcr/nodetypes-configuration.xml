@@ -1,0 +1,122 @@
+<nodeTypes
+  xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+  xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+  xmlns:jcr="http://www.jcp.org/jcr/1.0"
+  xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0">
+
+  <nodeType name="exo:project" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>nt:base</supertype>
+      <supertype>mix:referenceable</supertype>
+      <supertype>exo:privilegeable</supertype>
+    </supertypes>
+    <propertyDefinitions>
+      <propertyDefinition name="exo:projectName" requiredType="String" autoCreated="false" mandatory="true"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:projectDescription" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:projectMembers" requiredType="String" autoCreated="false" mandatory="true"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:projectLead" requiredType="String" autoCreated="false" mandatory="true"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:projectRoles" requiredType="String" autoCreated="false" mandatory="true"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+    </propertyDefinitions>
+    <childNodeDefinitions>
+    <childNodeDefinition name="exo:projectAvatar" defaultPrimaryType="nt:file" autoCreated="false" mandatory="false"
+                         onParentVersion="COPY" protected="false" sameNameSiblings="false" >
+      <requiredPrimaryTypes>
+        <requiredPrimaryType>nt:file</requiredPrimaryType>
+      </requiredPrimaryTypes>
+    </childNodeDefinition>
+  </nodeType>
+
+  <nodeType name="exo:taskTypeDefinition" isMixin="true" hasOrderableChildNodes="false" primaryItemName="">
+    <propertyDefinitions>
+      <propertyDefinition name="exo:taskTypeName" requiredType="String" autoCreated="true" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskTypeDescription" requiredType="String" autoCreated="true" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+    </propertyDefinitions>
+  </nodeType>
+                           i
+  <nodeType name="exo:task" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <propertyDefinitions>
+      <propertyDefinition name="exo:taskName" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskDescription" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskAssignee" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskStatus" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskType" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskPriority" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskLabels" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskDueDate" requiredType="Date" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskStartDate" requiredType="Date" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskEndDate" requiredType="Date" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskEstimateTime" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskRemainingTime" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskLoggedTime" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+    </propertyDefinitions>
+
+    <childNodeDefinition name="*" defaultPrimaryType="nt:file" autoCreated="false" mandatory="false"
+                         onParentVersion="COPY" protected="false" sameNameSiblings="false" >
+      <requiredPrimaryTypes>
+        <requiredPrimaryType>nt:file</requiredPrimaryType>
+      </requiredPrimaryTypes>
+    </childNodeDefinition>
+  </nodeType>
+
+</nodeTypes>
+  
