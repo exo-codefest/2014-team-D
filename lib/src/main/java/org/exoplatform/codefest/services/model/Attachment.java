@@ -1,4 +1,4 @@
-package org.exoplatform.codefest.services;
+package org.exoplatform.codefest.services.model;
 
 /**
  * Created by minhdv on 6/26/14.

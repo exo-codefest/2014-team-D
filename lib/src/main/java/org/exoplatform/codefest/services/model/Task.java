@@ -1,4 +1,4 @@
-package org.exoplatform.codefest.services;
+package org.exoplatform.codefest.services.model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,6 +10,7 @@ import java.util.List;
 public class Task {
 
   private String name;
+  private String summary;
   private String priority;
   private String status;
   private String type;
@@ -22,10 +23,10 @@ public class Task {
   private String loggedTime;
   private List<Attachment> attachments = new ArrayList<Attachment>();
   private Attachment attachment;
-  private Assignee assignee;
+  private String assignee;
+  private TaskACL taskRoles;
 
   public Task() {
-
   }
 
   public String getName() {
@@ -34,6 +35,13 @@ public class Task {
 
   public void setName(String name) {
           this.name = name;
+  }
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
   }
 
   public String getPriority() {
@@ -120,11 +128,19 @@ public class Task {
     this.attachment = attachment;
   }
 
-  public Assignee getAssignee() {
+  public String getAssignee() {
     return assignee;
   }
 
-  public void setAssignee(Assignee assignee) {
+  public void setAssignee(String assignee) {
     this.assignee = assignee;
+  }
+
+  public TaskACL getTaskRoles() {
+    return taskRoles;
+  }
+
+  public void setTaskRoles(TaskACL taskRoles) {
+    this.taskRoles = taskRoles;
   }
 }
