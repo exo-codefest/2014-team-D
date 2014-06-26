@@ -33,11 +33,5 @@
             <label>#{administration.taskAdmin}</label>
             <page-reference>group::/platform/administrators::taskAdmin</page-reference>
         </node>
-        <node>
-            <uri>myTask</uri>
-            <name>myTask</name>
-            <label>#{administration.myTask}</label>
-            <page-reference>group::/platform/administrators::myTask</page-reference>
-        </node>
     </page-nodes>
 </node-navigation>
