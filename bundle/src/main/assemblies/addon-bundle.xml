@@ -36,7 +36,7 @@
 				<include>${project.groupId}:team-d-addon-webapp:war</include>
 			</includes>
 			<scope>provided</scope>
-			<outputFileNameMapping>team-d-addon-webapp.war</outputFileNameMapping>
+			<outputFileNameMapping>task-extension.war</outputFileNameMapping>
 		</dependencySet>
 		<!-- Libraries -->
 		<dependencySet>
