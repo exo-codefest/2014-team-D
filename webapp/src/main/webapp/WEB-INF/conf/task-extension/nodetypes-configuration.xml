@@ -5,11 +5,6 @@
   xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0">
 
   <nodeType name="exo:project" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
-    <supertypes>
-      <supertype>nt:base</supertype>
-      <supertype>mix:referenceable</supertype>
-      <supertype>exo:privilegeable</supertype>
-    </supertypes>
     <propertyDefinitions>
       <propertyDefinition name="exo:projectName" requiredType="String" autoCreated="false" mandatory="true"
                           onParentVersion="COPY" protected="false" multiple="false">
@@ -110,13 +105,14 @@
         <valueConstraints/>
       </propertyDefinition>
     </propertyDefinitions>
-
-    <childNodeDefinition name="*" defaultPrimaryType="nt:file" autoCreated="false" mandatory="false"
-                         onParentVersion="COPY" protected="false" sameNameSiblings="false" >
-      <requiredPrimaryTypes>
-        <requiredPrimaryType>nt:file</requiredPrimaryType>
-      </requiredPrimaryTypes>
-    </childNodeDefinition>
+    <childNodeDefinitions>
+      <childNodeDefinition name="*" defaultPrimaryType="nt:file" autoCreated="false" mandatory="false"
+                           onParentVersion="COPY" protected="false" sameNameSiblings="false" >
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:file</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+    </childNodeDefinitions>
   </nodeType>
 
 </nodeTypes>
