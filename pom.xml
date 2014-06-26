@@ -37,6 +37,7 @@
   <description>Codefest 2014 - Team D Addon</description>
   <modules>
     <module>lib</module>
+    <module>services</module>
     <module>config</module>
     <module>webapp</module>
     <module>bundle</module>

@@ -33,12 +33,13 @@
       </propertyDefinition>
     </propertyDefinitions>
     <childNodeDefinitions>
-    <childNodeDefinition name="exo:projectAvatar" defaultPrimaryType="nt:file" autoCreated="false" mandatory="false"
-                         onParentVersion="COPY" protected="false" sameNameSiblings="false" >
-      <requiredPrimaryTypes>
-        <requiredPrimaryType>nt:file</requiredPrimaryType>
-      </requiredPrimaryTypes>
-    </childNodeDefinition>
+      <childNodeDefinition name="exo:projectAvatar" defaultPrimaryType="nt:file" autoCreated="false" mandatory="false"
+                           onParentVersion="COPY" protected="false" sameNameSiblings="false" >
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:file</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+    </childNodeDefinitions>
   </nodeType>
 
   <nodeType name="exo:taskTypeDefinition" isMixin="true" hasOrderableChildNodes="false" primaryItemName="">
