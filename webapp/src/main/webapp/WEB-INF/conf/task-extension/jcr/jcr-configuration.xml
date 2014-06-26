@@ -42,7 +42,7 @@
         <values-param>
           <name>autoCreatedInNewRepository</name>
           <description>Node types configuration file</description>
-          <value>war:/conf/jcr/nodetypes-configuration.xml</value>
+          <value>war:/conf/task-extension/jcr/nodetypes-configuration.xml</value>
         </values-param>
       </init-params>
     </component-plugin>

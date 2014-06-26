@@ -32,4 +32,7 @@
   <packaging>war</packaging>
   <name>Codefest 2014 - Team D Addon - Webapp</name>
   <description>Codefest 2014 - Team D Addon - A portlet or any webapp</description>
+  <build>
+    <finalName>task-extension</finalName>
+  </build>
 </project>
