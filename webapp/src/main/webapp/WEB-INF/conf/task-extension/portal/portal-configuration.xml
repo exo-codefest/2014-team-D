@@ -28,7 +28,7 @@
                             <string>group</string>
                         </field>
                         <field name="templateLocation">
-                            <string>war:/conf/task-management/portal</string>
+                            <string>war:/conf/task-extension/portal</string>
                         </field>
                     </object>
                 </object-param>

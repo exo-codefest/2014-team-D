@@ -28,7 +28,7 @@
         <init-params>
             <value-param>
                 <name>setup.navigation.file</name>
-                <value>war:/conf/task-management/setup-navigation.xml</value>
+                <value>war:/conf/task-extension/setup-navigation.xml</value>
             </value-param>
         </init-params>
     </component>
