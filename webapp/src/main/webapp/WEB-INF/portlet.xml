@@ -23,4 +23,26 @@
             <keywords>TaskManagementPortlet</keywords>
         </portlet-info>
     </portlet>
+
+    <portlet>
+        <description xml:lang="EN">My Task</description>
+        <portlet-name>MyTaskPortlet</portlet-name>
+        <display-name xml:lang="EN">My Task Portlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <value>/WEB-INF/conf/task-extension/portlet/myTask/webui/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.MyTaskPortlet</resource-bundle>
+        <portlet-info>
+            <title>My Task Portlet</title>
+            <short-title>My Task Portlet</short-title>
+            <keywords>MyTaskPortlet</keywords>
+        </portlet-info>
+    </portlet>
 </portlet-app>

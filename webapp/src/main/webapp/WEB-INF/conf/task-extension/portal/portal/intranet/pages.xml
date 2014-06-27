@@ -28,16 +28,16 @@
         <edit-permission>manager:/platform/administrators</edit-permission>
         <container id="TaskManagementPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
-            <!--<portlet-application>-->
-                <!--<portlet>-->
-                    <!--<application-ref>task-extension</application-ref>-->
-                    <!--<portlet-ref>MyTaskPortlet</portlet-ref>-->
-                <!--</portlet>-->
-                <!--<title>My Task</title>-->
-                <!--<access-permissions>*:/platform/users</access-permissions>-->
-                <!--<show-info-bar>false</show-info-bar>-->
-                <!--<show-application-state>true</show-application-state>-->
-            <!--</portlet-application>-->
+            <portlet-application>
+                <portlet>
+                    <application-ref>task-extension</application-ref>
+                    <portlet-ref>MyTaskPortlet</portlet-ref>
+                </portlet>
+                <title>My Task</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+                <show-application-state>true</show-application-state>
+            </portlet-application>
         </container>
     </page>
 </page-set>
