@@ -29,7 +29,7 @@ public class TaskManagementPortlet extends UIPortletApplication {
   }
 
   public List<Task> getTaskList(String projectId) {
-    PortalContainer.get
+    return null;
   }
 
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
