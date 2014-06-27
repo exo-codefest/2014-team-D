@@ -8,8 +8,11 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by minhdv on 6/26/14.
@@ -51,6 +54,18 @@ public class ProjectManagerImpl implements ProjectManager {
     return project;
   }
 
+  @Override
+  public List<Project> getProjects() throws Exception {
+    List<Project> projects = new ArrayList<Project>();
+    Node rootProjectNode = CoreUtils.getProjectRootNode();
+    NodeIterator nodeIter = rootProjectNode.getNodes();
+    while(nodeIter.hasNext()) {
+      Node projectNode = nodeIter.nextNode();
+      projects.add(getProjectFromNode(projectNode));
+    }
+    return projects;
+  }
+
   private String getPropertyValue(Node node, String propertyName) {
     try {
       return node.getProperty(propertyName).getString();
@@ -59,6 +74,16 @@ public class ProjectManagerImpl implements ProjectManager {
     } catch(RepositoryException e) {
       return StringUtils.EMPTY;
     }
+  }
+
+  private Project getProjectFromNode(Node node) throws Exception {
+    Project project = new Project();
+    project.setName(node.getProperty(Project.EXO_PROJECT_NAME).getString());
+    project.setDescription(node.getProperty(Project.EXO_PROJECT_DESC).getString());
+    project.setDefautlAssignee(node.getProperty(Project.EXO_PROJECT_DEFAULT_ASSIGNEE).getString());
+    project.setProjectLead(node.getProperty(Project.EXO_PROJECT_LEAD).getString());
+    project.setMembers(node.getProperty(Project.EXO_PROJECT_MEMBERS).getString());
+    return project;
   }
 
 }
