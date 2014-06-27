@@ -1,0 +1,27 @@
+<div id="content" class="uiBox" style="">
+ <h6 class="title center">My issue</h6>
+ <div id="myIssue" class="uiMyIssueList" style="">
+  <ul id="myIssue">
+   <li id="cbc787ffc0a8012b2b7f462f179b3f2a" class="clearfix">
+    <a href="/portal/intranet/task1">
+     <i class="uiIconTaskOpen uiIconLightGray" data-original-title="Open" data-toggle="tooltip" rel="tooltip" data-placement="bottom"></i>
+     <span data-original-title="Chat apps portlet overview" data-toggle="tooltip" rel="tooltip" data-placement="bottom">Chat apps portlet overview</span></a>
+   </li>
+   <li id="cbc787ffc0a8012b2b7f462f179b3f2a" class="clearfix">
+    <a href="/portal/intranet/task2">
+     <i class="uiIconTaskInProgress uiIconLightGray" data-original-title="In progress" data-toggle="tooltip" rel="tooltip" data-placement="bottom"></i>
+     <span data-original-title="Chat apps portlet overview" data-toggle="tooltip" rel="tooltip" data-placement="bottom">Chat apps portlet overview</span></a>
+   </li>
+   <li id="cbc787ffc0a8012b2b7f462f179b3f2a" class="clearfix">
+    <a href="/portal/intranet/task3">
+     <i class="uiIconTaskOpen uiIconLightGray" data-original-title="Open" data-toggle="tooltip" rel="tooltip" data-placement="bottom"></i>
+     <span data-original-title="Chat apps portlet overview" data-toggle="tooltip" rel="tooltip" data-placement="bottom">Chat apps portlet overview</span></a>
+   </li>
+   <li id="cbc787ffc0a8012b2b7f462f179b3f2a" class="clearfix">
+    <a href="/portal/intranet/task4">
+     <i class="uiIconTaskOpen uiIconLightGray" data-original-title="Open" data-toggle="tooltip" rel="tooltip" data-placement="bottom"></i>
+     <span data-original-title="Chat apps portlet overview" data-toggle="tooltip" rel="tooltip" data-placement="bottom">Chat apps portlet overview</span></a>
+   </li>
+  </ul>
+ </div>
+</div>

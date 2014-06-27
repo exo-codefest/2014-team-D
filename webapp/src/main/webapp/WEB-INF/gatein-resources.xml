@@ -16,5 +16,12 @@
         <skin-name>Default</skin-name>
         <css-path>/css/style.css</css-path>
     </portlet-skin>
+    
+    <portlet-skin>
+        <application-name>task-extension</application-name>
+        <portlet-name>MyTaskHomePagePortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/css/style.css</css-path>
+    </portlet-skin>
 
 </gatein-resources>

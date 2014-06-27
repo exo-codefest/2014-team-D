@@ -45,4 +45,26 @@
             <keywords>MyTaskPortlet</keywords>
         </portlet-info>
     </portlet>
+    
+    <portlet>
+        <description xml:lang="EN">My Task Home Page</description>
+        <portlet-name>MyTaskHomePagePortlet</portlet-name>
+        <display-name xml:lang="EN">My Task Home Page Portlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <value>/WEB-INF/conf/task-extension/portlet/myTaskHomePage/webui/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.MyTaskHomePagePortlet</resource-bundle>
+        <portlet-info>
+            <title>My Task Home Page Portlet</title>
+            <short-title>My Task HP Portlet</short-title>
+            <keywords>MyTaskHomePagePortlet</keywords>
+        </portlet-info>
+    </portlet>
 </portlet-app>
