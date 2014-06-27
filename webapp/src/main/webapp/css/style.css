@@ -98,3 +98,25 @@
 .uiTaskManager .rightDetail .contentListTask{
 	padding: 20px;
 }
+.contentListTask{
+	margin: 20px;
+}
+
+.uiMyIssueList{
+	padding: 14px;
+}
+
+.uiMyIssueList ul li{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.uiMyIssueList ul li a{
+	line-height: 28px;
+	color: #333;
+}
+
+.uiMyIssueList ul li a:hover{
+	color: #2f5e92;
+}
