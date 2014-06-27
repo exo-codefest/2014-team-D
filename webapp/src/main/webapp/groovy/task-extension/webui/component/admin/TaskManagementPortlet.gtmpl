@@ -12,7 +12,7 @@
    import org.exoplatform.webui.event.EventListener;
    import org.exoplatform.codefest.services.model.Task;
    import java.text.SimpleDateFormat;
-
+   import org.exoplatform.webui.core.UIPopupWindow;
    import java.util.ArrayList;
    import java.util.Date;
    import java.util.List;
@@ -22,8 +22,8 @@
    <div class="leftMenu pull-left">
       <h5 class="topMenu clearfix">
          <div class="pull-right" id="">
-            <div title="Add Pjolect" data-placement="bottom" rel="tooltip" data-original-title="Add Project">
-               <i class="uiIconAddIcon uiIconLightGray"></i>
+            <div title="Add Project" data-placement="bottom" rel="tooltip" data-original-title="Add Project">
+               <i onclick="<%=uicomponent.event("CreateProject");%>" class="uiIconAddIcon uiIconLightGray"></i>
             </div>
          </div>
          <a href="#" class="pull-left">All Project</a>
@@ -84,9 +84,9 @@
                   %>
                <tr>
                   <td>
-                     <div><%=task.getName()%></div>
+                     <div><%=task.getSummary()%></div>
                   </td>
-                  <td><%=new SimpleDateFormat("yyyy/MM/dd").format(task.getDueDate())%></td>
+                  <td><%=new SimpleDateFormat("yyyy/MM/dd").format(task.getDueDate().getTime())%></td>
                   <td><%=task.getPriority()%></td>
                   <td><%=task.getStatus()%></td>
                   <td class="center span2">

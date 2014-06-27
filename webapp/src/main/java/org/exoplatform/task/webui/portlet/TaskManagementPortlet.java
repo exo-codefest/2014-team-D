@@ -4,6 +4,7 @@ import org.exoplatform.codefest.services.model.Task;
 import org.exoplatform.codefest.services.api.TaskManager;
 import org.exoplatform.codefest.services.utils.CoreUtils;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.task.webui.component.ProjectForm;
 import org.exoplatform.task.webui.component.TaskForm;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -104,6 +105,9 @@ public class TaskManagementPortlet extends UIPortletApplication {
   static public class CreateProjectActionListener extends EventListener<TaskManagementPortlet> {
     public void execute(Event<TaskManagementPortlet> event) throws Exception {
       TaskManagementPortlet taskManagementPortlet = event.getSource();
+      ProjectForm projectForm = taskManagementPortlet.createUIComponent(ProjectForm.class, null, null);
+      taskManagementPortlet.initPopup(projectForm);
+      event.getRequestContext().addUIComponentToUpdateByAjax(taskManagementPortlet);
     }
   }
 

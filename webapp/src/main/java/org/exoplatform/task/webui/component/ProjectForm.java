@@ -5,6 +5,10 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTextAreaInput;
 
 @ComponentConfig(
         lifecycle = UIFormLifecycle.class,
@@ -14,7 +18,16 @@ import org.exoplatform.webui.event.EventListener;
                 @EventConfig(listeners = ProjectForm.CancelActionListener.class)
         }
 )
-public class ProjectForm {
+public class ProjectForm extends UIForm {
+  public ProjectForm() {
+    UIFormStringInput projectNameUIFormStringInput = new UIFormStringInput("projectName", "projectName", null);
+    UIFormTextAreaInput projectDescriptionUIFormTextAreaInput = new UIFormTextAreaInput("projectDescription",
+            "projectDescription", null);
+    addUIFormInput(projectNameUIFormStringInput);
+    addUIFormInput(projectDescriptionUIFormTextAreaInput);
+    setActions(new String[]{"Save","Cancel"})  ;
+  }
+
   static public class SaveActionListener extends EventListener<ProjectForm> {
     public void execute(Event<ProjectForm> event) throws Exception {
     }
