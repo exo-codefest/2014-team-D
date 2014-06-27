@@ -31,3 +31,68 @@
   background-position: -40px 0px;
 }
 
+.uiTaskManager {
+	background: none repeat scroll 0 0 white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.uiTaskManager .leftMenu{
+	width: 220px;
+}
+
+.uiTaskManager .topMenu{
+	background: none repeat scroll 0 0 #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+    padding: 8px 12px;
+	line-height: 23px;
+}
+
+.uiTaskManager .leftMenu .uiIconAddIcon{
+	cursor: pointer;
+}
+
+
+.uiTaskManager .leftMenu ul li{
+	border-bottom: 1px solid #ccc;
+}
+
+.uiTaskManager .leftMenu .selected{
+	background: #f8f8f8;
+}
+
+.uiTaskManager .leftMenu ul li a{
+    color: #333;
+    display: block;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+.uiTaskManager .leftMenu ul li .actionIcon{
+    display: inline;
+    padding-left: 4px;
+}
+
+.uiTaskManager .leftMenu ul li a:hover{
+    color: #2f5e92;
+}
+
+.uiTaskManager .rightDetail{
+	margin-left: 220px;
+	border-left: 1px solid #ccc;
+}
+
+.uiTaskManager .rightDetail .topMenu{
+	height: 23px;
+}
+
+.uiTaskManager .rightDetail .topMenu .btn{
+	margin-top: -2px;
+}
+
+.uiTaskManager .rightDetail .contentListTask{
+	padding: 20px;
+}

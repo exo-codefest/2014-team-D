@@ -1,1 +1,145 @@
-MyTaskPortlet comming soon...
+<div class="uiTaskManager clearfix">
+	  
+		<div class="leftMenu pull-left">
+			<h5 class="topMenu clearfix">
+				<div class="pull-right" id="">
+				  <div title="Add Pjolect" data-placement="bottom" rel="tooltip" data-original-title="Add Project">
+					<i class="uiIconAddIcon uiIconLightGray"></i>
+					  </div>
+				</div>
+				<a href="#" class="pull-left">All Project</a>
+			</h5>
+			<ul>
+				<li class="selected clearfix">
+					<a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i> exo ecms</a>
+					<div class="pull-right">
+						<a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
+						<a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
+					</div>
+				</li>
+				<li class=" clearfix">
+					<a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i> exo UI</a>
+					<div class="pull-right">
+						<a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
+						<a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
+					</div>
+				</li>
+				<li class=" clearfix">
+					<a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i> exo portal</a>
+					<div class="pull-right">
+						<a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
+						<a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
+					</div>
+				</li>
+				<li class=" clearfix">
+					<a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i> exo calendar</a>
+					<div class="pull-right">
+						<a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
+						<a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	  
+		<div class="rightDetail">
+			<h5 class="topMenu clearfix">
+				<div class="pull-right" id="">
+				  <button class="btn btn-primary"> Add task</button>
+				</div>
+				<span class="pull-left">eXo ecms</span>
+			</h5>
+			<div class="contentListTask">
+				<table class="uiGrid table table-hover table-striped">
+	  <thead>
+	    <tr>
+	      <th>Task</th>
+		  <th>Due date</th>
+		  <th>Prority</th>
+		  <th>Status</th>
+		  <th class="center span1">Actions</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+          <tr>
+            <td>
+              <div>Dublin Core</div>
+            </td>
+            <td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+            <td class="center span2">
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="View"><i class="uiIconView"></i></a>
+				<a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Edit"><i class="uiIconEdit"></i></a>
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Delete"><i class="uiIconDelete"></i></a>
+            </td>
+          </tr>
+		  <tr>
+            <td>
+              <div>Dublin Core</div>
+            </td>
+            <td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+            <td class="center span2">
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="View"><i class="uiIconView"></i></a>
+				<a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Edit"><i class="uiIconEdit"></i></a>
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Delete"><i class="uiIconDelete"></i></a>
+            </td>
+          </tr>
+		  <tr>
+            <td>
+              <div>Dublin Core</div>
+            </td>
+            <td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+            <td class="center span2">
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="View"><i class="uiIconView"></i></a>
+				<a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Edit"><i class="uiIconEdit"></i></a>
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Delete"><i class="uiIconDelete"></i></a>
+            </td>
+          </tr>
+		  <tr>
+            <td>
+              <div>Dublin Core</div>
+            </td>
+            <td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+            <td class="center span2">
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="View"><i class="uiIconView"></i></a>
+				<a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Edit"><i class="uiIconEdit"></i></a>
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Delete"><i class="uiIconDelete"></i></a>
+            </td>
+          </tr>
+		  <tr>
+            <td>
+              <div>Dublin Core</div>
+            </td>
+            <td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+            <td class="center span2">
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="View"><i class="uiIconView"></i></a>
+				<a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Edit"><i class="uiIconEdit"></i></a>
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Delete"><i class="uiIconDelete"></i></a>
+            </td>
+          </tr>
+		  <tr>
+            <td>
+              <div>Dublin Core</div>
+            </td>
+            <td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+			<td>dc:elementSet</td>
+            <td class="center span2">
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="View"><i class="uiIconView"></i></a>
+				<a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Edit"><i class="uiIconEdit"></i></a>
+	            <a title="" data-placement="bottom" rel="tooltip" onclick="" class="actionIcon" data-original-title="Delete"><i class="uiIconDelete"></i></a>
+            </td>
+          </tr>
+	  </tbody>
+  </table>
+			</div>
+		</div>	
+</div>
