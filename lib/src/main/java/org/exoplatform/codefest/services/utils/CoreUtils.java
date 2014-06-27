@@ -13,8 +13,12 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 import javax.jcr.Node;
+import javax.jcr.Property;
+import javax.jcr.PropertyType;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryResult;
 
 /**
  * Created by minhdv on 6/26/14.
@@ -95,5 +99,24 @@ public class CoreUtils {
     String path = nodeHierarchyCreator.getJcrPath("projectManagement");
     Session session = getSystemSessionProvider().getSession(System.getProperty("gatein.jcr.workspace.default"), getRepository());
     return (Node) session.getItem(path);
+  }
+
+  public static Object getPropertyValue(Property property) throws Exception {
+    int propertyType = property.getType() ;
+    switch(propertyType) {
+      case PropertyType.STRING : return property.getValue().getString() ;
+      case PropertyType.BOOLEAN : return property.getValue().getBoolean() ;
+      case PropertyType.DATE : return property.getValue().getDate() ;
+      case PropertyType.DOUBLE : return property.getValue().getDouble() ;
+      case PropertyType.LONG : return property.getValue().getLong() ;
+      case PropertyType.NAME : return property.getValue().getString() ;
+      case PropertyType.UNDEFINED : return property.getValue() ;
+    }
+    return null ;
+  }
+
+  public static QueryResult buildQuery(String statement) throws Exception {
+    Session session = getSystemSessionProvider().getSession(System.getProperty("gatein.jcr.workspace.default"), getRepository());
+    return session.getWorkspace().getQueryManager().createQuery(statement, Query.SQL).execute();
   }
 }

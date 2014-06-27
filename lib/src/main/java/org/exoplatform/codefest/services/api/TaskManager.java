@@ -6,34 +6,32 @@ import java.util.List;
 
 public interface TaskManager {
 
-  public void createTask(Task task);
+  public void createTask(String projectId, Task task) throws Exception;
 
-  public void updateTask(String taskName);
+  public void createSubTask(Task task, String parentTaskId);
 
-  public void removeTask(String taskName);
+  public void updateTask(Task task) throws Exception;
 
-  public void assignTask(String taskName);
+  public void removeTask(String taskId) throws Exception;
 
-  public void reAssignTask(String taskName);
+  public void assignTask(String taskId, String userId) throws Exception;
 
-  public List<Task> getUserTasks(String userName);
+  public List<Task> getUserTasks(String userId) throws Exception;
 
-  public List<Task> getAllTaskInProject(String projectName);
+  public List<Task> getAllTaskInProject(String projectId) throws Exception;
 
-  public void startProgress(String taskName);
+  public void startProgress(String taskId) throws Exception;
 
-  public void stopProgress(String taskName);
+  public void stopProgress(String taskId) throws Exception;
 
-  public void resolveTask(String taskName);
+  public void resolveTask(String taskId) throws Exception;
 
-  public void closeTask(String taskName);
+  public void closeTask(String taskId) throws Exception;
 
-  public void moveTask(Task task, String targetProject);
+  public void moveTask(String taskId, String targetProjectId) throws Exception;
 
-  public void convertTask(Task task);
+  public void cloneTask(String taskId) throws Exception;
 
-  public void cloneTask(Task task);
-
-  public Task getTaskByName(String taskName);
+  public Task getTaskById(String taskId) throws Exception;
 
 }

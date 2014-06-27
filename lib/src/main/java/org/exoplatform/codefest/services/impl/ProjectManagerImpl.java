@@ -1,18 +1,28 @@
 package org.exoplatform.codefest.services.impl;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.codefest.services.api.ProjectManager;
 import org.exoplatform.codefest.services.model.Project;
+import org.exoplatform.codefest.services.utils.CoreUtils;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+
+import javax.jcr.Node;
+import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
 
 /**
  * Created by minhdv on 6/26/14.
  */
 public class ProjectManagerImpl implements ProjectManager {
 
+  private static final Log LOG  = ExoLogger.getLogger(ProjectManager.class.getName());
+
   public ProjectManagerImpl() throws Exception {
 
   }
   @Override
-  public void addProject(String projectName, String projectDescription, String members)
+  public void createProject(String projectName, String projectDescription, String members)
     throws Exception {
     Project project = new Project(projectName, projectDescription, members);
     project.create();
@@ -28,6 +38,27 @@ public class ProjectManagerImpl implements ProjectManager {
   public void removeProject(String projectName) throws Exception {
     Project project = new Project(projectName);
     project.remove();
+  }
+
+  @Override
+  public Project getProjectById(String projectId) throws Exception{
+    Node rootProjectNode = CoreUtils.getProjectRootNode();
+    Node projectNode = rootProjectNode.getNode(projectId);
+    Project project = new Project();
+    project.setName(getPropertyValue(projectNode, Project.EXO_PROJECT_NAME));
+    project.setDescription(getPropertyValue(projectNode, Project.EXO_PROJECT_DESC));
+    project.setDefautlAssignee(getPropertyValue(projectNode, Project.EXO_PROJECT_DEFAULT_ASSIGNEE));
+    return project;
+  }
+
+  private String getPropertyValue(Node node, String propertyName) {
+    try {
+      return node.getProperty(propertyName).getString();
+    } catch(PathNotFoundException pne) {
+      return StringUtils.EMPTY;
+    } catch(RepositoryException e) {
+      return StringUtils.EMPTY;
+    }
   }
 
 }

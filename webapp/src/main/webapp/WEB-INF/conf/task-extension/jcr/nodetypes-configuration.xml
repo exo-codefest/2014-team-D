@@ -26,6 +26,10 @@
                           onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints/>
       </propertyDefinition>
+      <propertyDefinition name="exo:defaultAssignee" requiredType="String" autoCreated="false" mandatory="true"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
     </propertyDefinitions>
     <childNodeDefinitions>
       <childNodeDefinition name="exo:projectAvatar" defaultPrimaryType="nt:file" autoCreated="false" mandatory="false"
@@ -52,7 +56,11 @@
                            i
   <nodeType name="exo:task" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
     <propertyDefinitions>
-      <propertyDefinition name="exo:taskName" requiredType="String" autoCreated="false" mandatory="false"
+      <propertyDefinition name="exo:taskId" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskSummary" requiredType="String" autoCreated="false" mandatory="false"
                           onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints/>
       </propertyDefinition>
@@ -101,6 +109,18 @@
         <valueConstraints/>
       </propertyDefinition>
       <propertyDefinition name="exo:taskLoggedTime" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:projectId" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskReporter" requiredType="String" autoCreated="false" mandatory="false"
+                          onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>
+      </propertyDefinition>
+      <propertyDefinition name="exo:taskParentId" requiredType="String" autoCreated="false" mandatory="false"
                           onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints/>
       </propertyDefinition>
