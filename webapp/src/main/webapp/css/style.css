@@ -1,5 +1,11 @@
-[class^="uiIconTask"], .btn.disabled:hover  [class^="uiIconTask"] {
-  background-image: url('../img/uiIconTaskDarkGray.png');
+[class^="uiIconTask"], .uiIconTaskLightGray {
+  background-image: url('../img/uiIconTaskLightGray.png');
+  background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    vertical-align: text-top;
+    width: 16px;
 }
 
 .nav-pills > .active > a > [class^="uiIconTask"],
@@ -10,10 +16,6 @@
 [class^="uiIconTask"]:hover, .uiActionBar [class^="uiIconTask"]:hover, .uiIconTaskBlue
  {
   background-image: url('../img/uiIconTaskBlue.png');
-}
-
-.uiIconTaskLightGray {
-  background-image: url('../img/uiIconTaskLightGray.png');
 }
 
 .uiIconTaskWhite

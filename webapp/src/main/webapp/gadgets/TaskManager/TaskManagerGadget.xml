@@ -9,8 +9,6 @@
   
   <Content type="html">
   <![CDATA[
-     <title>Task management - Team D</title>
-     <link rel="stylesheet" href="/task-extension/exo-gadget-resources/skin/exo-gadget/style.css" type="text/css" />
      <div id="myIssue" class="uiMyIssueList" style="">
       <ul id="myIssue">
        <li id="cbc787ffc0a8012b2b7f462f179b3f2a" class="clearfix">
