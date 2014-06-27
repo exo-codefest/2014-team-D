@@ -1,14 +1,23 @@
 package org.exoplatform.task.webui.portlet;
 
 import org.exoplatform.codefest.services.model.Task;
+import org.exoplatform.codefest.services.api.TaskManager;
+import org.exoplatform.codefest.services.utils.CoreUtils;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.task.webui.component.TaskForm;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.codefest.services.model.Task;
+import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UIComponent;
+
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -27,6 +36,17 @@ import java.util.List;
         })
 public class TaskManagementPortlet extends UIPortletApplication {
   public TaskManagementPortlet() throws Exception {
+    UIPopupWindow uiPopup = addChild(UIPopupWindow.class, null, "taskPopup");
+  }
+
+  public void initPopup(UIComponent uiComponent) throws Exception {
+    UIPopupWindow uiPopup = getChildById("taskPopup");
+    uiPopup.setRendered(true);
+    uiPopup.setShowMask(true);
+    uiPopup.setWindowSize(600, 270);
+    uiPopup.setUIComponent(uiComponent);
+    uiPopup.setShow(true);
+    uiPopup.setResizable(true);
   }
 
   public List<Task> getTaskList(String projectId) {
@@ -67,13 +87,14 @@ public class TaskManagementPortlet extends UIPortletApplication {
     taskList.add(tempTask);
 
     tempTask = new Task();
-    tempTask.setSummary("[Weemo-extension] Not redirected to space after created and space menu disappears when updating navigation of space");
+    tempTask.setSummary("[Weemo-extension] Not redirected to space after created and space menu disappears when " +
+            "updating navigation of space");
     tempTask.setDueDate(new GregorianCalendar());
     tempTask.setPriority("High");
     tempTask.setStatus("Closed");
     taskList.add(tempTask);
     return taskList;
-   // return CoreUtils.getService(TaskManager.class).getAllTaskInProject(projectId);
+    // return CoreUtils.getService(TaskManager.class).getAllTaskInProject(projectId);
   }
 
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
@@ -101,6 +122,9 @@ public class TaskManagementPortlet extends UIPortletApplication {
   static public class CreateTaskActionListener extends EventListener<TaskManagementPortlet> {
     public void execute(Event<TaskManagementPortlet> event) throws Exception {
       TaskManagementPortlet taskManagementPortlet = event.getSource();
+      TaskForm taskForm = taskManagementPortlet.createUIComponent(TaskForm.class, null, null);
+      taskManagementPortlet.initPopup(taskForm);
+      event.getRequestContext().addUIComponentToUpdateByAjax(taskManagementPortlet);
     }
   }
 
