@@ -1,5 +1,5 @@
 [class^="uiIconTask"], .btn.disabled:hover  [class^="uiIconTask"] {
-  background-image: url('/weemo-extension/img/uiIconWeemoDarkGray.png');
+  background-image: url('../img/uiIconTaskDarkGray.png');
 }
 
 .nav-pills > .active > a > [class^="uiIconTask"],
