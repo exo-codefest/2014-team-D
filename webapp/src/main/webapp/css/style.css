@@ -95,11 +95,12 @@
 	margin-top: -2px;
 }
 
-.uiTaskManager .rightDetail .contentListTask{
+.contentListTask{
 	padding: 20px;
 }
-.contentListTask{
-	margin: 20px;
+
+.contentListTask h4{
+	margin-top: 0px;
 }
 
 .uiMyIssueList{
