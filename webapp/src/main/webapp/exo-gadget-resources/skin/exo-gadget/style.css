@@ -1,0 +1,33 @@
+[class^="uiIconTask"], .btn.disabled:hover  [class^="uiIconTask"] {
+  background-image: url('./img/uiIconTaskLightGray.png');
+}
+
+.nav-pills > .active > a > [class^="uiIconTask"],
+.nav-list > .active > a > [class^="uiIconTask"],
+.navbar-inverse .nav > .active > a > [class^="uiIconTask"],
+.btn:hover [class^="uiIconTask"], a:hover [class^="uiIconTask"],
+.actionIcon.active [class^="uiIconTask"],.nodeSelected:hover [class^="uiIconTask"],
+[class^="uiIconTask"]:hover, .uiActionBar [class^="uiIconTask"]:hover, .uiIconTaskBlue
+ {
+  background-image: url('./img/uiIconTaskBlue.png');
+}
+
+.uiIconTaskLightGray {
+  background-image: url('./img/uiIconTaskLightGray.png');
+}
+
+.uiIconTaskWhite
+ {
+  background-image: url('./img/uiIconTaskWhite.png');
+}
+
+.uiIconTaskOpen {
+  background-position: -20px 0px;
+}
+.uiIconTaskInProgress {
+  background-position: 0px 0px;
+}
+.uiIconTaskApp {
+  background-position: -40px 0px;
+}
+
