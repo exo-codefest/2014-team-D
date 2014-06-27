@@ -61,6 +61,11 @@
             <groupId>org.gatein.portal</groupId>
             <artifactId>exo.portal.webui.portlet</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.exoplatform.addons.codefest.team_d</groupId>
+            <artifactId>team-d-addon-lib</artifactId>
+            <version>1.0.x-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <description>Codefest 2014 - Team D Addon - A portlet or any webapp</description>
     <build>

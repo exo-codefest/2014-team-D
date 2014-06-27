@@ -1,5 +1,6 @@
 package org.exoplatform.task.webui.portlet;
 
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -8,6 +9,9 @@ import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.codefest.services.model.Task;
+
+import java.util.List;
 
 @ComponentConfig(
         lifecycle = UIApplicationLifecycle.class,
@@ -22,6 +26,10 @@ import org.exoplatform.webui.event.EventListener;
         })
 public class TaskManagementPortlet extends UIPortletApplication {
   public TaskManagementPortlet() throws Exception {
+  }
+
+  public List<Task> getTaskList(String projectId) {
+    PortalContainer.get
   }
 
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
