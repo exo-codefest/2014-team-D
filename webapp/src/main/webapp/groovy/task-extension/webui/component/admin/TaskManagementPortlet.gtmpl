@@ -11,6 +11,7 @@
    import org.exoplatform.webui.event.Event;
    import org.exoplatform.webui.event.EventListener;
    import org.exoplatform.codefest.services.model.Task;
+   import org.exoplatform.codefest.services.model.Project;
    import java.text.SimpleDateFormat;
    import org.exoplatform.webui.core.UIPopupWindow;
    import java.util.ArrayList;
@@ -29,34 +30,20 @@
          <a href="#" class="pull-left">All Project</a>
       </h5>
       <ul>
-         <li class="selected clearfix">
-            <a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i> exo ecms</a>
+         <%
+            List<Project> allProjects = uicomponent.getProjects();
+            for (Project project in allProjects) {
+            %>
+         <li class="clearfix">
+            <a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i><%=project.getName()%></a>
             <div class="pull-right">
                <a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
                <a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
             </div>
          </li>
-         <li class=" clearfix">
-            <a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i> exo UI</a>
-            <div class="pull-right">
-               <a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
-               <a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
-            </div>
-         </li>
-         <li class=" clearfix">
-            <a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i> exo portal</a>
-            <div class="pull-right">
-               <a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
-               <a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
-            </div>
-         </li>
-         <li class=" clearfix">
-            <a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i> exo calendar</a>
-            <div class="pull-right">
-               <a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
-               <a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
-            </div>
-         </li>
+         <%
+            }
+            %>
       </ul>
    </div>
    <div class="rightDetail">
@@ -102,10 +89,9 @@
          </table>
       </div>
    </div>
-	<%
-	for(uiChild in uicomponent.getChildren()) {
-		if(uiChild instanceof UIPopupWindow) uicomponent.renderChild(uiChild);
-	}
-	%>
+   <%
+      for(uiChild in uicomponent.getChildren()) {
+      	if(uiChild instanceof UIPopupWindow) uicomponent.renderChild(uiChild);
+      }
+      %>
 </div>
-

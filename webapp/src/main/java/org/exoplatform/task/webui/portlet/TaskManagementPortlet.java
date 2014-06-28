@@ -1,24 +1,21 @@
 package org.exoplatform.task.webui.portlet;
 
+import org.exoplatform.codefest.services.api.ProjectManager;
+import org.exoplatform.codefest.services.model.Project;
 import org.exoplatform.codefest.services.model.Task;
-import org.exoplatform.codefest.services.api.TaskManager;
 import org.exoplatform.codefest.services.utils.CoreUtils;
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.task.webui.component.ProjectForm;
 import org.exoplatform.task.webui.component.TaskForm;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.codefest.services.model.Task;
-import org.exoplatform.webui.core.UIPopupWindow;
-import org.exoplatform.webui.core.UIComponent;
-
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -48,6 +45,10 @@ public class TaskManagementPortlet extends UIPortletApplication {
     uiPopup.setUIComponent(uiComponent);
     uiPopup.setShow(true);
     uiPopup.setResizable(true);
+  }
+
+  public List<Project> getProjects() throws Exception {
+    return CoreUtils.getService(ProjectManager.class).getProjects();
   }
 
   public List<Task> getTaskList(String projectId) {

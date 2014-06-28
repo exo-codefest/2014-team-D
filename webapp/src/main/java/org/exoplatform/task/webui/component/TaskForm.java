@@ -2,6 +2,7 @@ package org.exoplatform.task.webui.component;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -58,6 +59,8 @@ public class TaskForm extends UIForm {
 
   static public class CancelActionListener extends EventListener<TaskForm> {
     public void execute(Event<TaskForm> event) throws Exception {
+      TaskForm taskForm = event.getSource();
+      taskForm.getAncestorOfType(UIPopupWindow.class).setRendered(false);
     }
   }
 }
