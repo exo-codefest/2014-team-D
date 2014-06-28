@@ -41,6 +41,12 @@
           <requiredPrimaryType>nt:file</requiredPrimaryType>
         </requiredPrimaryTypes>
       </childNodeDefinition>
+    <childNodeDefinition name="*" defaultPrimaryType="exo:task" autoCreated="false" mandatory="false"
+                         onParentVersion="VERSION" protected="false" sameNameSiblings="true">
+        <requiredPrimaryTypes>
+            <requiredPrimaryType>exo:task</requiredPrimaryType>
+        </requiredPrimaryTypes>
+    </childNodeDefinition>
     </childNodeDefinitions>
   </nodeType>
 
