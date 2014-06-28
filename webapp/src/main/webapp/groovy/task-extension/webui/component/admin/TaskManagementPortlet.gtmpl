@@ -37,8 +37,8 @@
          <li class="clearfix">
             <a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i><%=project.getName()%></a>
             <div class="pull-right">
-               <a class="actionIcon" href="#"><i class="uiIconEdit uiIconLightGray"></i></a>
-               <a class="actionIcon" href="#"><i class="uiIconDelete uiIconLightGray"></i></a>
+               <a class="actionIcon" href="#"><i onclick="<%=uicomponent.event("EditProject", project.getName());%>" class="uiIconEdit uiIconLightGray"></i></a>
+               <a class="actionIcon" href="#"><i onclick="<%=uicomponent.event("DeleteProject", project.getName());%>" class="uiIconDelete uiIconLightGray"></i></a>
             </div>
          </li>
          <%

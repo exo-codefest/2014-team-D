@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 import org.exoplatform.codefest.services.utils.CoreUtils;
 
 import javax.jcr.Node;
+import javax.jcr.PathNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +16,7 @@ public class Project {
 
   public static final String EXO_PROJECT = "exo:project";
   public static final String EXO_PROJECT_NAME = "exo:projectName";
+  public static final String EXO_NAME = "exo:name";
   public static final String EXO_PROJECT_DESC = "exo:projectDescription";
   public static final String EXO_PROJECT_MEMBERS = "exo:projectMembers";
   public static final String EXO_PROJECT_ROLES = "exo:projectRoles";
@@ -24,6 +26,7 @@ public class Project {
 
 
   private String pName = StringUtils.EMPTY;
+  private String pOldName = StringUtils.EMPTY;
   private String pDesc = StringUtils.EMPTY;
   private String members = StringUtils.EMPTY;
   private String pLead = StringUtils.EMPTY;
@@ -114,8 +117,19 @@ public class Project {
 
   public void update() throws Exception {
     Node projectRoot = CoreUtils.getProjectRootNode();
-    Node project = projectRoot.getNode(pName);
+    Node project = null;
+    try {
+      project = projectRoot.getNode(pName);
+    } catch(PathNotFoundException pne) {
+      //Project name has been changed
+      if(pOldName.length() > 0) {
+        project = projectRoot.getNode(pOldName);
+        project.getSession().getWorkspace().move(project.getPath(), project.getParent().getPath() + "/" + pName);
+        //TODO: MUST update all tasks which are belong to old project
+      }
+    }
     project.setProperty(EXO_PROJECT_NAME, pName);
+    project.setProperty(EXO_NAME, pName);
     project.setProperty(EXO_PROJECT_DESC, pDesc);
     project.setProperty(EXO_PROJECT_LEAD, pLead);
     project.setProperty(EXO_PROJECT_MEMBERS, members);
@@ -134,4 +148,11 @@ public class Project {
     return projectRoot.getNode(pName);
   }
 
+  public String getProjectOldName() {
+    return pOldName;
+  }
+
+  public void setProjectOldName(String pOldName) {
+    this.pOldName = pOldName;
+  }
 }

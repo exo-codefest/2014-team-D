@@ -13,6 +13,8 @@ public interface ProjectManager {
 
   public void updateProject(String name, String description, String members) throws Exception;
 
+  public void updateProject(String oldName, String newName, String description, String members) throws Exception;
+
   public void removeProject(String name) throws Exception;
 
   public Project getProjectById(String projectId) throws Exception;

@@ -1,6 +1,8 @@
 package org.exoplatform.task.webui.component;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.codefest.services.api.ProjectManager;
+import org.exoplatform.codefest.services.model.Project;
 import org.exoplatform.codefest.services.utils.CoreUtils;
 import org.exoplatform.task.webui.portlet.TaskManagementPortlet;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -26,6 +28,7 @@ public class ProjectForm extends UIForm {
   private static final String PROJECT_NAME = "projectName";
   private static final String PROJECT_DESCRIPTION = "projectDescription";
   private static final String PROJECT_MEMBERS = "projectMembers";
+  private String projectId = StringUtils.EMPTY;
 
   public ProjectForm() {
     UIFormStringInput projectNameUIFormStringInput = new UIFormStringInput(PROJECT_NAME, PROJECT_NAME, null);
@@ -36,12 +39,23 @@ public class ProjectForm extends UIForm {
     setActions(new String[]{"Save","Cancel"})  ;
   }
 
+  public void fillForm(Project project) {
+    projectId = project.getName();
+    getUIStringInput(PROJECT_NAME).setValue(project.getName());
+    getUIFormTextAreaInput(PROJECT_DESCRIPTION).setValue(project.getDescription());
+  }
+
   static public class SaveActionListener extends EventListener<ProjectForm> {
     public void execute(Event<ProjectForm> event) throws Exception {
       ProjectForm projectForm = event.getSource();
       String projectName = projectForm.getUIStringInput(PROJECT_NAME).getValue();
       String projectDescription = projectForm.getUIFormTextAreaInput(PROJECT_DESCRIPTION).getValue();
-      CoreUtils.getService(ProjectManager.class).createProject(projectName, projectDescription, null);
+      ProjectManager projectManager = CoreUtils.getService(ProjectManager.class);
+      if(projectForm.projectId.length() > 0) {
+        projectManager.updateProject(projectForm.projectId, projectName, projectDescription, null);
+      } else {
+        projectManager.createProject(projectName, projectDescription, null);
+      }
       event.getRequestContext().addUIComponentToUpdateByAjax(projectForm.getAncestorOfType(TaskManagementPortlet.class));
       projectForm.getAncestorOfType(UIPopupWindow.class).setRendered(false);
     }

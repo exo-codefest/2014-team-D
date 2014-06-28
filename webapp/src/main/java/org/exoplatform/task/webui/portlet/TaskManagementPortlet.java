@@ -29,7 +29,8 @@ import java.util.List;
                 @EventConfig(listeners = TaskManagementPortlet.DeleteTaskActionListener.class),
                 @EventConfig(listeners = TaskManagementPortlet.EditTaskActionListener.class),
                 @EventConfig(listeners = TaskManagementPortlet.CreateProjectActionListener.class),
-                @EventConfig(listeners = TaskManagementPortlet.DeleteProjectActionListener.class),
+                @EventConfig(listeners = TaskManagementPortlet.DeleteProjectActionListener.class,
+                  confirm = "project.msg.confirm-delete"),
                 @EventConfig(listeners = TaskManagementPortlet.EditProjectActionListener.class)
         })
 public class TaskManagementPortlet extends UIPortletApplication {
@@ -115,12 +116,22 @@ public class TaskManagementPortlet extends UIPortletApplication {
   static public class EditProjectActionListener extends EventListener<TaskManagementPortlet> {
     public void execute(Event<TaskManagementPortlet> event) throws Exception {
       TaskManagementPortlet taskManagementPortlet = event.getSource();
+      ProjectManager projectManager = CoreUtils.getService(ProjectManager.class);
+      String projectId = event.getRequestContext().getRequestParameter(OBJECTID);
+      ProjectForm projectForm = taskManagementPortlet.createUIComponent(ProjectForm.class, null, null);
+      taskManagementPortlet.initPopup(projectForm);
+      projectForm.fillForm(projectManager.getProjectById(projectId));
+      event.getRequestContext().addUIComponentToUpdateByAjax(taskManagementPortlet);
     }
   }
 
   static public class DeleteProjectActionListener extends EventListener<TaskManagementPortlet> {
     public void execute(Event<TaskManagementPortlet> event) throws Exception {
       TaskManagementPortlet taskManagementPortlet = event.getSource();
+      ProjectManager projectManager = CoreUtils.getService(ProjectManager.class);
+      String projectId = event.getRequestContext().getRequestParameter(OBJECTID);
+      projectManager.removeProject(projectId);
+      event.getRequestContext().addUIComponentToUpdateByAjax(taskManagementPortlet);
     }
   }
 

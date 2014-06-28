@@ -41,6 +41,14 @@ public class ProjectManagerImpl implements ProjectManager {
   }
 
   @Override
+  public void updateProject(String oldProjectName, String projectName, String projectDescription,
+                            String members) throws Exception {
+    Project project = new Project(projectName, projectDescription, members);
+    project.setProjectOldName(oldProjectName);
+    project.update();
+  }
+
+  @Override
   public void removeProject(String projectName) throws Exception {
     Project project = new Project(projectName);
     project.remove();
