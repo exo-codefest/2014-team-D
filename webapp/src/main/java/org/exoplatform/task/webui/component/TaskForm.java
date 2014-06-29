@@ -77,7 +77,7 @@ public class TaskForm extends UIForm {
 //    UIFormSelectBox taskProjectStatusUIFormSelectBox = new UIFormSelectBox(TASK_PROJECT_STATUS, TASK_PROJECT_STATUS, statusOptions);
 
     // Assignee
-    UIFormStringInput taskProjectAssigneeUIFormStringInput = new UIFormStringInput(TASK_PROJECT_ASSIGNEE, TASK_PROJECT_ASSIGNEE, null);
+    //UIFormStringInput taskProjectAssigneeUIFormStringInput = new UIFormStringInput(TASK_PROJECT_ASSIGNEE, TASK_PROJECT_ASSIGNEE, null);
 
     // Estimate time
     //UIFormStringInput taskProjectEstimateTimeUIFormStringInput = new UIFormStringInput(TASK_PROJECT_ESTIMATE_TIME, TASK_PROJECT_ESTIMATE_TIME, null);
@@ -90,7 +90,7 @@ public class TaskForm extends UIForm {
     //addUIFormInput(taskProjectDescriptionUIFormTextAreaInput);
     addUIFormInput(taskProjectPriorityUIFormSelectBox);
     //addUIFormInput(taskProjectStatusUIFormSelectBox);
-    addUIFormInput(taskProjectAssigneeUIFormStringInput);
+    //addUIFormInput(taskProjectAssigneeUIFormStringInput);
     //addUIFormInput(taskProjectEstimateTimeUIFormStringInput);
     addUIFormInput(taskProjectDueDateUIFormDateTimeInput);
 
@@ -106,7 +106,7 @@ public class TaskForm extends UIForm {
       task.setSummary(taskForm.getUIStringInput(TASK_PROJECT_SUMMARY).getValue());
       task.setDueDate(taskForm.getUIFormDateTimeInput(TASK_DUE_DATE).getCalendar());
       //task.setStatus(taskForm.getUIFormSelectBox(TASK_PROJECT_STATUS).getValue());
-      task.setAssignee(taskForm.getUIStringInput(TASK_PROJECT_ASSIGNEE).getValue());
+      //task.setAssignee(taskForm.getUIStringInput(TASK_PROJECT_ASSIGNEE).getValue());
       task.setPriority(taskForm.getUIFormSelectBox(TASK_PROJECT_PRIORITY).getValue());
       task.setReporter(event.getRequestContext().getRemoteUser());
       CoreUtils.getService(TaskManager.class).createTask(projectId, task);

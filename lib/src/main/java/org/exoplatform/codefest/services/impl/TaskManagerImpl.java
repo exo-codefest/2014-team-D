@@ -85,7 +85,7 @@ public class TaskManagerImpl implements TaskManager {
   @Override
   public List<Task> getUserTasks(String userId) throws Exception {
     List<Task> tasks = new ArrayList<Task>();
-    String statement = "SELECT * FROM exo:task WHERE exo:assignee = '"+userId+"";
+    String statement = "SELECT * FROM exo:task WHERE exo:assignee = '"+userId+"'";
     QueryResult result = CoreUtils.buildQuery(statement);
     NodeIterator nodeIter = result.getNodes();
     while(nodeIter.hasNext()) {
@@ -98,7 +98,7 @@ public class TaskManagerImpl implements TaskManager {
   @Override
   public List<Task> getAllTaskInProject(String projectId) throws Exception {
     List<Task> tasks = new ArrayList<Task>();
-    String statement = "SELECT * FROM exo:task WHERE exo:projectId = '"+projectId+"";
+    String statement = "SELECT * FROM exo:task WHERE exo:projectId = '"+projectId+"'";
     QueryResult result = CoreUtils.buildQuery(statement);
     NodeIterator nodeIter = result.getNodes();
     while(nodeIter.hasNext()) {
@@ -199,19 +199,44 @@ public class TaskManagerImpl implements TaskManager {
   public Task convertToTask(Node taskNode) throws Exception {
     Task task = new Task();
     task.setTaskId(taskNode.getProperty(Task.TASK_ID).getString());
+
     task.setSummary(taskNode.getProperty(Task.TASK_SUMMARY).getString());
-    task.setDescription(taskNode.getProperty(Task.TASK_DESCRIPTION).getString());
-    task.setReporter(taskNode.getProperty(Task.TASK_REPORTER).getString());
-    task.setAssignee(taskNode.getProperty(Task.TASK_ASSIGNEE).getString());
-    task.setDueDate(taskNode.getProperty(Task.TASK_DUE_DATE).getDate());
-    task.setStartDate(taskNode.getProperty(Task.TASK_START_DATE).getDate());
-    task.setEndDate(taskNode.getProperty(Task.TASK_END_DATE).getDate());
-    task.setPriority(taskNode.getProperty(Task.TASK_PRIORITY).getString());
-    task.setStatus(taskNode.getProperty(Task.TASK_STATUS).getString());
-    task.setType(taskNode.getProperty(Task.TASK_TYPE).getString());
-    task.setEstimateTime(taskNode.getProperty(Task.TASK_ESTIMATE_TIME).getString());
-    task.setRemainingTime(taskNode.getProperty(Task.TASK_REMAINING_TIME).getString());
-    task.setLoggedTime(taskNode.getProperty(Task.TASK_LOGGED_TIME).getString());
+    if (taskNode.hasProperty(Task.TASK_DESCRIPTION)) {
+      task.setDescription(taskNode.getProperty(Task.TASK_DESCRIPTION).getString());
+    }
+    if (taskNode.hasProperty(Task.TASK_REPORTER)) {
+      task.setReporter(taskNode.getProperty(Task.TASK_REPORTER).getString());
+    }
+    if (taskNode.hasProperty(Task.TASK_ASSIGNEE)) {
+      task.setAssignee(taskNode.getProperty(Task.TASK_ASSIGNEE).getString());
+    }
+    if (taskNode.hasProperty(Task.TASK_DUE_DATE)) {
+      task.setDueDate(taskNode.getProperty(Task.TASK_DUE_DATE).getDate());
+    }
+    if (taskNode.hasProperty(Task.TASK_START_DATE)) {
+      task.setStartDate(taskNode.getProperty(Task.TASK_START_DATE).getDate());
+    }
+    if (taskNode.hasProperty(Task.TASK_END_DATE)) {
+      task.setEndDate(taskNode.getProperty(Task.TASK_END_DATE).getDate());
+    }
+    if (taskNode.hasProperty(Task.TASK_PRIORITY)) {
+      task.setPriority(taskNode.getProperty(Task.TASK_PRIORITY).getString());
+    }
+    if (taskNode.hasProperty(Task.TASK_STATUS)) {
+      task.setStatus(taskNode.getProperty(Task.TASK_STATUS).getString());
+    }
+    if (taskNode.hasProperty(Task.TASK_TYPE)) {
+      task.setType(taskNode.getProperty(Task.TASK_TYPE).getString());
+    }
+    if (taskNode.hasProperty(Task.TASK_ESTIMATE_TIME)) {
+      task.setEstimateTime(taskNode.getProperty(Task.TASK_ESTIMATE_TIME).getString());
+    }
+    if (taskNode.hasProperty(Task.TASK_REMAINING_TIME)) {
+      task.setRemainingTime(taskNode.getProperty(Task.TASK_REMAINING_TIME).getString());
+    }
+    if (taskNode.hasProperty(Task.TASK_LOGGED_TIME)) {
+      task.setLoggedTime(taskNode.getProperty(Task.TASK_LOGGED_TIME).getString());
+    }
     return task;
   }
 

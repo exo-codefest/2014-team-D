@@ -1,6 +1,8 @@
 package org.exoplatform.task.webui.portlet;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.codefest.services.api.ProjectManager;
+import org.exoplatform.codefest.services.api.TaskManager;
 import org.exoplatform.codefest.services.model.Project;
 import org.exoplatform.codefest.services.model.Task;
 import org.exoplatform.codefest.services.utils.CoreUtils;
@@ -18,7 +20,6 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @ComponentConfig(
@@ -31,9 +32,13 @@ import java.util.List;
                 @EventConfig(listeners = TaskManagementPortlet.CreateProjectActionListener.class),
                 @EventConfig(listeners = TaskManagementPortlet.DeleteProjectActionListener.class,
                   confirm = "project.msg.confirm-delete"),
-                @EventConfig(listeners = TaskManagementPortlet.EditProjectActionListener.class)
+                @EventConfig(listeners = TaskManagementPortlet.EditProjectActionListener.class),
+                @EventConfig(listeners = TaskManagementPortlet.SelectProjectActionListener.class)
+
         })
 public class TaskManagementPortlet extends UIPortletApplication {
+  private String selectedProjectId;
+
   public TaskManagementPortlet() throws Exception {
     UIPopupWindow uiPopup = addChild(UIPopupWindow.class, null, "taskPopup");
   }
@@ -52,56 +57,21 @@ public class TaskManagementPortlet extends UIPortletApplication {
     return CoreUtils.getService(ProjectManager.class).getProjects();
   }
 
-  public List<Task> getTaskList(String projectId) {
-    List<Task> taskList = new ArrayList<Task>();
-    Task tempTask = new Task();
-    tempTask.setSummary("Can't add or edit \"Illustrated Web Content\" with filling field \"JS Data\"");
-    tempTask.setDueDate(new GregorianCalendar());
-    tempTask.setPriority("Minor");
-    tempTask.setStatus("In progress");
-    taskList.add(tempTask);
-
-    tempTask = new Task();
-    tempTask.setSummary("[IE] Failed upload and throw RepositoryException when upload a zip file");
-    tempTask.setDueDate(new GregorianCalendar());
-    tempTask.setPriority("Low");
-    tempTask.setStatus("Open");
-    taskList.add(tempTask);
-
-    tempTask = new Task();
-    tempTask.setSummary("Unplanned stuff for sprint PLF-2014-S26");
-    tempTask.setDueDate(new GregorianCalendar());
-    tempTask.setPriority("High");
-    tempTask.setStatus("Closed");
-    taskList.add(tempTask);
-
-    tempTask = new Task();
-    tempTask.setSummary("Impossible to open uploaded file in Chinese from Upload Status box");
-    tempTask.setDueDate(new GregorianCalendar());
-    tempTask.setPriority("High");
-    tempTask.setStatus("In progress");
-    taskList.add(tempTask);
-
-    tempTask = new Task();
-    tempTask.setSummary("Limit size of upload file if they are uploaded by webdav client tools.");
-    tempTask.setDueDate(new GregorianCalendar());
-    tempTask.setPriority("Low");
-    tempTask.setStatus("Open");
-    taskList.add(tempTask);
-
-    tempTask = new Task();
-    tempTask.setSummary("[Weemo-extension] Not redirected to space after created and space menu disappears when " +
-            "updating navigation of space");
-    tempTask.setDueDate(new GregorianCalendar());
-    tempTask.setPriority("High");
-    tempTask.setStatus("Closed");
-    taskList.add(tempTask);
-    return taskList;
-    // return CoreUtils.getService(TaskManager.class).getAllTaskInProject(projectId);
+  public List<Task> getTaskList(String projectId) throws Exception {
+    if (StringUtils.isEmpty(projectId)) return new ArrayList<Task>();
+    return CoreUtils.getService(TaskManager.class).getAllTaskInProject(projectId);
   }
 
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     super.processRender(app, context);
+  }
+
+  public String getSelectedProjectId() {
+    return selectedProjectId;
+  }
+
+  public void setSelectedProjectId(String selectedProjectId) {
+    this.selectedProjectId = selectedProjectId;
   }
 
   static public class CreateProjectActionListener extends EventListener<TaskManagementPortlet> {
@@ -153,6 +123,15 @@ public class TaskManagementPortlet extends UIPortletApplication {
   static public class EditTaskActionListener extends EventListener<TaskManagementPortlet> {
     public void execute(Event<TaskManagementPortlet> event) throws Exception {
       TaskManagementPortlet taskManagementPortlet = event.getSource();
+    }
+  }
+
+  static public class SelectProjectActionListener extends EventListener<TaskManagementPortlet> {
+    public void execute(Event<TaskManagementPortlet> event) throws Exception {
+      TaskManagementPortlet taskManagementPortlet = event.getSource();
+      String projectId = event.getRequestContext().getRequestParameter(OBJECTID);
+      taskManagementPortlet.setSelectedProjectId(projectId);
+      event.getRequestContext().addUIComponentToUpdateByAjax(taskManagementPortlet);
     }
   }
 }

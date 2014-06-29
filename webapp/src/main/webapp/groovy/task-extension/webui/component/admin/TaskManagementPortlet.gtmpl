@@ -1,24 +1,27 @@
 <%
+   import org.apache.commons.lang.StringUtils
    import org.exoplatform.codefest.services.api.TaskManager;
-   import org.exoplatform.codefest.services.utils.CoreUtils;
-   import org.exoplatform.container.PortalContainer;
-   import org.exoplatform.webui.application.WebuiApplication;
-   import org.exoplatform.webui.application.WebuiRequestContext;
-   import org.exoplatform.webui.config.annotation.ComponentConfig;
-   import org.exoplatform.webui.config.annotation.EventConfig;
-   import org.exoplatform.webui.core.UIPortletApplication;
-   import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
-   import org.exoplatform.webui.event.Event;
-   import org.exoplatform.webui.event.EventListener;
-   import org.exoplatform.codefest.services.model.Task;
-   import org.exoplatform.codefest.services.model.Project;
-   import java.text.SimpleDateFormat;
-   import org.exoplatform.webui.core.UIPopupWindow;
-   import java.util.ArrayList;
-   import java.util.Date;
-   import java.util.List;
-   
-   %>
+      import org.exoplatform.codefest.services.utils.CoreUtils;
+      import org.exoplatform.container.PortalContainer;
+      import org.exoplatform.webui.application.WebuiApplication;
+      import org.exoplatform.webui.application.WebuiRequestContext;
+      import org.exoplatform.webui.config.annotation.ComponentConfig;
+      import org.exoplatform.webui.config.annotation.EventConfig;
+      import org.exoplatform.webui.core.UIPortletApplication;
+      import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+      import org.exoplatform.webui.event.Event;
+      import org.exoplatform.webui.event.EventListener;
+      import org.exoplatform.codefest.services.model.Task;
+      import org.exoplatform.codefest.services.model.Project;
+      import java.text.SimpleDateFormat;
+      import org.exoplatform.webui.core.UIPopupWindow;
+      import java.util.ArrayList;
+      import java.util.Date;
+      import java.util.List;
+
+      String selectedProjectId = uicomponent.getSelectedProjectId();
+
+      %>
 <div class="uiTaskManager clearfix" id = "$uicomponent.id">
    <div class="leftMenu pull-left">
       <h5 class="topMenu clearfix">
@@ -34,8 +37,8 @@
             List<Project> allProjects = uicomponent.getProjects();
             for (Project project in allProjects) {
             %>
-         <li class="clearfix">
-            <a class="project pull-left" href="#"><i class="uiIconFile uiIconLightGray"></i><%=project.getName()%></a>
+         <li class="clearfix" onclick="<%=uicomponent.event("SelectProject", project.getName());%>" >
+            <a class="project pull-left"  href="#"><i class="uiIconFile uiIconLightGray"></i><%=project.getName()%></a>
             <div class="pull-right">
                <a class="actionIcon" href="#"><i onclick="<%=uicomponent.event("EditProject", project.getName());%>" class="uiIconEdit uiIconLightGray"></i></a>
                <a class="actionIcon" href="#"><i onclick="<%=uicomponent.event("DeleteProject", project.getName());%>" class="uiIconDelete uiIconLightGray"></i></a>
@@ -51,7 +54,7 @@
          <div class="pull-right" id="">
             <button class="btn btn-primary" onclick="<%=uicomponent.event("CreateTask");%>"> Add task</button>
          </div>
-         <span class="pull-left">eXo ecms</span>
+         <span class="pull-left"><%=selectedProjectId%></span>
       </h5>
       <div class="contentListTask">
          <table class="uiGrid table table-hover table-striped">
@@ -66,7 +69,12 @@
             </thead>
             <tbody>
                <%
-                  List<Task> allTasks = uicomponent.getTaskList(null);
+                  if (StringUtils.isEmpty(selectedProjectId)) {
+                  %>
+               <td colspan="5" class="center" ><%=_ctx.appRes("project.msg.no-project-selected")%></td>
+               <%
+                  } else {
+                  List<Task> allTasks = uicomponent.getTaskList(selectedProjectId);
                   for (Task task in allTasks) {
                   %>
                <tr>
@@ -83,6 +91,12 @@
                   </td>
                </tr>
                <%
+                  }
+                  if (allTasks.size() == 0) {
+                  %>
+               <td colspan="5" class="center" ><%=_ctx.appRes("TaskList.msg.empty-result")%></td>
+               <%
+                  }
                   }
                   %>
             </tbody>
